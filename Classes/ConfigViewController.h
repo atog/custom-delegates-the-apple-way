@@ -10,5 +10,5 @@
 #import "ConfigControllerDelegate.h"
 
 @interface ConfigViewController : UIViewController
-@property (nonatomic, retain) id<ConfigControllerDelegate> delegate;
+@property (nonatomic, retain) NSObject<ConfigControllerDelegate> *delegate;
 @end

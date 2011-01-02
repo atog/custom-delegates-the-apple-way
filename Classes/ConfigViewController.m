@@ -62,17 +62,17 @@
 - (void)setColor:(id)sender {
 	if (((UIButton *)sender).tag == CLEAR_TAG) {
 		// No check on selector, because selector clearColor is @required
-		[((NSObject *)self.delegate) performSelector:@selector(clearColor)];
-	} else if ([((NSObject *)self.delegate) respondsToSelector:@selector(changeColor:)]) {
+		[self.delegate performSelector:@selector(clearColor)];
+	} else if ([self.delegate respondsToSelector:@selector(changeColor:)]) {
 		switch (((UIButton *)sender).tag) {
 			case BLACK_TAG:
-				[((NSObject *)self.delegate) performSelector:@selector(changeColor:) withObject:[UIColor blackColor]];
+				[self.delegate performSelector:@selector(changeColor:) withObject:[UIColor blackColor]];
 				break;
 			case RED_TAG:
-				[((NSObject *)self.delegate) performSelector:@selector(changeColor:) withObject:[UIColor redColor]];
+				[self.delegate performSelector:@selector(changeColor:) withObject:[UIColor redColor]];
 				break;
 			case YELLOW_TAG:
-				[((NSObject *)self.delegate) performSelector:@selector(changeColor:) withObject:[UIColor yellowColor]];
+				[self.delegate performSelector:@selector(changeColor:) withObject:[UIColor yellowColor]];
 				break;
 			default:
 				break;
